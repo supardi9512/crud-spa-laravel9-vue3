@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Resources\PostResource;
+use Illuminate\Http\Response;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
 
@@ -48,7 +49,7 @@ class UpdatePostRequest extends FormRequest
 
     protected function failedValidation(Validator $validator)
     {
-        $response = new PostResource(false, $validator->errors(), null);
+        $response = new Response(new PostResource(false, $validator->errors(), null), 422);
         throw new ValidationException($validator, $response);
     }
 }

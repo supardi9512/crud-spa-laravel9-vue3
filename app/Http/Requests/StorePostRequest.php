@@ -50,7 +50,6 @@ class StorePostRequest extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         $response = new Response(new PostResource(false, $validator->errors(), null), 422);
-        // $response = new PostResource(false, $validator->errors(), null);
         throw new ValidationException($validator, $response);
     }
 }
