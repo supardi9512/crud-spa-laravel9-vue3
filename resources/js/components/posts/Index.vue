@@ -5,7 +5,7 @@
                 <div class="card card-default">
                     <div class="card-header">POSTS</div>
                     <div class="card-body">
-                        <router-link :to="{ name: 'create' }" class="btn btn-md btn-success">TAMBAH POST</router-link>
+                        <router-link :to="{ name: 'create-post' }" class="btn btn-sm btn-success">TAMBAH POST</router-link>
                         <div class="table-responsive mt-2">
                             <table class="table table-hover table-bordered">
                                 <thead>
@@ -20,7 +20,7 @@
                                         <td>{{ post.title }}</td>
                                         <td>{{ post.content }}</td>
                                         <td class="text-center">
-                                            <router-link :to="{name: 'edit', params: { id: post.id }}" class="btn btn-sm btn-primary me-1">EDIT</router-link>
+                                            <router-link :to="{name: 'edit-post', params: { id: post.id }}" class="btn btn-sm btn-primary me-1">EDIT</router-link>
                                             <button @click.prevent="PostDelete(post.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
                                         </td>
                                     </tr>

@@ -17,12 +17,12 @@ const routes = [
         component: IndexComponent
     },
     {
-        name: 'create',
+        name: 'create-post',
         path: '/create',
         component: CreateComponent
     },
     {
-        name: 'edit',
+        name: 'edit-post',
         path: '/edit/:id',
         component: EditComponent
     }
