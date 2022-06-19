@@ -21,7 +21,7 @@
                                         <td>{{ post.content }}</td>
                                         <td class="text-center">
                                             <router-link :to="{name: 'edit-post', params: { id: post.id }}" class="btn btn-sm btn-primary me-1">EDIT</router-link>
-                                            <button @click.prevent="PostDelete(post.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
+                                            <button @click.prevent="postDelete(post.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -45,6 +45,17 @@
             this.axios.get(uri).then(response => {
                 this.posts = response.data.data;
             });
+        },
+        methods: {
+            postDelete(id, index) {
+                this.axios.delete(`http://localhost:8000/api/posts/${id}`)
+                    .then(response => {
+                        this.posts.splice(index, 1);
+                    }).catch(error => {
+                        alert('system error!');
+                    });
+            }
         }
+
     }
 </script>
